@@ -1,15 +1,19 @@
 class Solution(object):
     def majorityElement(self, nums):
-        candi=nums[0]
         count=0
-        for num in nums:
+        for i in range(len(nums)):
             if count==0:
-                candi=num
-            if candi==num:
+                count=1
+                ele=nums[i]
+            elif nums[i]==ele:
                 count+=1
             else:
                 count-=1
-                
-        return candi
-
+        count1=0
+        for i in range(len(nums)):
+            if nums[i]==ele:
+                count1+=1
+        if count1>(len(nums)-1)/2:
+            return ele
+        return -1
         
