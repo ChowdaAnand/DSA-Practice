@@ -1,10 +1,9 @@
 class Solution(object):
     def maxProfit(self, prices):
-        day=prices[0]
+        mini=prices[0]
         profit=0
         for i in range(len(prices)):
-            if day>prices[i]:
-                day=prices[i]
-            else:
-                profit=max(profit,prices[i]-day)
+            cost=prices[i]-mini
+            profit=max(cost,profit)
+            mini=min(mini,prices[i])
         return profit
